@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    private static List<String> events = new ArrayList<>();
+    private static HashMap<String, String> events = new HashMap<>();
 
     @GetMapping
     public String displayAllEvents(Model model) {
@@ -33,8 +34,25 @@ public class EventController {
     }
 
     @PostMapping("create")
-    public String processCreateEventForm(@RequestParam String eventName) {
-        events.add(eventName);
+    public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription) {
+        events.put(eventName, eventDescription);
+        return "redirect:";
+    }
+
+    @GetMapping("remove")
+    public String displayRemoveEventForm(Model model) {
+        model.addAttribute("events", events.keySet());
+        model.addAttribute("title", "Remove Event");
+        return "events/remove";
+    }
+
+    @PostMapping("remove")
+    public String processRemoveEventForm(@RequestParam ArrayList<String> event) {
+
+        for (String aEvent : event) {
+            events.remove(aEvent);
+        }
+
         return "redirect:";
     }
 
