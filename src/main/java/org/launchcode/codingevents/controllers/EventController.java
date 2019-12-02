@@ -20,7 +20,6 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    //private static HashMap<String, String> events = new HashMap<>();
     static ArrayList<Event> events = new ArrayList<>();
 
     @GetMapping
