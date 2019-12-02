@@ -7,8 +7,8 @@
 
 <form method="post">
     <div th:each="event : ${events}" class="checkbox">
-        <input type="checkbox" name="event" th:value="${event}" th:id="${event}"/>
-        <label th:for="${event}" th:text="${event}"></label>
+        <input type="checkbox" name="event" th:value="${event.name}" th:id="${event.name}"/>
+        <label th:for="${event.name}" th:text="${event.name}"></label>
         <br />
     </div>
 
