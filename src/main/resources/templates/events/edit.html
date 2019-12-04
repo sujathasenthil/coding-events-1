@@ -5,27 +5,15 @@
 
 <header th:replace="fragments :: header"></header>
 
-<form method="post">
-    <div th:each="event : ${events}">
+<form method="post" th:action="@{/events/edit}">
         <label>Name
             <input type="text" name="name" th:value="${event.name}">
         </label>
         <label>Description
             <input type="text" name="description" th:value="${event.description}">
         </label>
-        <input th:value="${event.eventId}" name="eventId">
-    </div>
+        <input type="hidden" th:value="${event.eventId}" name="eventId">
     <input type="submit" value="Edit">
-</form>
-
-<form method="post">
-    <div th:each="event : ${events}" class="checkbox">
-        <input type="checkbox" name="eventIds" th:value="${event.eventId}" th:id="${event.eventId}"/>
-        <label th:for="${event.eventId}" th:text="${event.name}"></label>
-        <br />
-    </div>
-
-    <input type="submit" value="Remove Event" />
 </form>
 
 </body>
