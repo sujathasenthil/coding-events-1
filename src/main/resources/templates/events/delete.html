@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+         <td>EventId</td>
+            <td>Name</td>
+            <td>Description</td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="event : ${events}">
+          <div class="form-control">
+<!--              <label>-->
+                <td>  <span th:text="${event.id}"></span></td>
+                  <td>   <span th:text="${event.name}"></span></td>
+                  <td>   <span th:text="${event.description}"></span></td>
+                  <td>   <input type ="checkbox"  name="eventIds" th:value="${event.id}" class="form-control"> <td>
+<!--              </label>-->
+          </div>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Delete">
+</form>
+
+</body>
+</html>

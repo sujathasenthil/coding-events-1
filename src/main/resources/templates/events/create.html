@@ -6,7 +6,15 @@
 <header th:replace="fragments :: header"></header>
 
 <form method="post">
-    <input type="text" name="eventName">
+
+    <div>
+    <label>Name</label>
+    <input type="text" name="eventName" th:field="${event.name}">
+    </div>
+    <div>
+     <label>Description </label>
+        <input type="text" name="eventDescription" th:field="${event.description}">
+      </div>
     <input type="submit" value="Create">
 </form>
 

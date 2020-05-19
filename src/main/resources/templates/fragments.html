@@ -4,6 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Coding Events</title>
     <link rel="stylesheet" th:href="@{/styles.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script th:src="@{/script.js}"></script>
 </head>
 <body>
@@ -11,8 +13,9 @@
 <nav th:fragment="header">
     <h1 th:text="${title}">Coding Events</h1>
     <ul>
-        <li><a href="/events">All Events</a></li>
+        <li><a href="/events/index">All Events</a></li>
         <li><a href="/events/create">Create Event</a></li>
+        <li><a href="/events/delete">Delete Event</a></li>
     </ul>
 </nav>
 
